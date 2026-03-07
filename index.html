@@ -107,6 +107,23 @@
       padding: 30px 40px;
       text-align: center;
       position: relative;
+      overflow: hidden;
+    }
+
+    .header-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .header > *:not(.header-video) {
+      position: relative;
+      z-index: 1;
     }
 
     .logo {
@@ -604,7 +621,7 @@
     /* Formulas Grid */
     .formules-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 25px;
       padding: 30px;
       background: rgba(15, 15, 15, 0.95);
@@ -615,10 +632,11 @@
       border-bottom: none !important;
       border-radius: 12px;
       border: 1px solid rgba(210, 157, 89, 0.2);
-      padding: 20px;
+      padding: 22px 18px;
       position: relative;
       display: flex;
       flex-direction: column;
+      gap: 12px;
     }
 
     .formules-grid .option.recommended {
@@ -628,13 +646,13 @@
 
     .formules-grid .option .option-header {
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 16px;
+      gap: 10px;
+      margin-bottom: 0;
     }
 
     .formules-grid .option .option-title {
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
 
     .formules-grid .option .option-name {
@@ -648,8 +666,54 @@
       text-align: center;
     }
 
-    .formules-grid .option .prestations-list {
-      flex-grow: 1;
+    /* Prestations en liste verticale */
+    .chips-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      font-size: 0.83rem;
+      color: #ddd;
+      border-bottom: 1px dashed rgba(210, 157, 89, 0.2);
+    }
+
+    .chip:last-child {
+      border-bottom: none;
+    }
+
+    .chip svg {
+      fill: #b90d01;
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    /* duration-info dans la grille : texte compact */
+    .formules-grid .option .duration-info {
+      font-size: 0.82rem;
+      padding: 9px 12px;
+      flex-wrap: wrap;
+      gap: 5px;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .formules-grid .option .tarif-line {
+      background: rgba(185, 13, 1, 0.2);
+      border: 1px solid rgba(210, 157, 89, 0.3);
+      border-radius: 6px;
+      padding: 9px 12px;
+      color: #d29d59;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-align: center;
+      margin-top: auto;
     }
 
     .recommend-badge {
@@ -746,6 +810,9 @@
 
     <!-- ====== HEADER ====== -->
     <div class="header">
+      <video class="header-video" autoplay muted loop playsinline preload="auto">
+        <source src="https://parvati-india.fr/wp-content/uploads/2023/10/Devotional-Background-For-god-worship-Animation-video.mp4" type="video/mp4">
+      </video>
       <img src="https://parvati-india.fr/wp-content/uploads/2023/10/LOGO-PARVATI-INDIA-2.png" alt="Parvati India Logo" class="logo" onerror="this.style.display='none'" />
       <div class="header-decoration">
         <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
@@ -823,13 +890,17 @@
           </li>
           <li>
             <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            <strong>10 minutes d'ambiance indienne festive</strong> après les danses, avec participation des invités et des mariés
+            <strong>Ambiance Bhangra festive</strong> après les danses, avec participation des invités et des mariés
           </li>
           <li>
             <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
             <strong>Animation surprise</strong> – mise en scène festive créant un moment magique et inoubliable
           </li>
         </ul>
+        <div class="duration-info" style="margin-top:20px;">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          Durée totale de l'animation&nbsp;: <strong>environ 20 minutes</strong> (incluant l'ambiance Bhangra)
+        </div>
       </div>
     </div>
 
@@ -840,53 +911,6 @@
     </div>
 
     <div class="formules-grid">
-
-      <!-- Card 1 – 2 Danseurs – 300 € -->
-      <div class="option">
-        <div class="option-header">
-          <div class="option-title">
-            <div class="checkbox">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            </div>
-            <div class="option-name">Option <span>« 2 DANSEURS »</span><br><small style="color:#aaa;font-weight:400;">(Praful &amp; Jenny)</small></div>
-          </div>
-          <div class="option-price">300,00 € TTC</div>
-        </div>
-        <div class="option-description">
-          <p>
-            Ajout de <strong>2 danseurs professionnels (Praful &amp; Jenny)</strong> à votre formule choisie,
-            pour un <strong>show de 10 min + ambiance de 10 min</strong>.
-          </p>
-        </div>
-        <div class="prestations-list">
-          <h4>
-            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            Détail des prestations&nbsp;:
-          </h4>
-          <ul>
-            <li>
-              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              <strong>Show Bollywood de 10 min</strong> – Praful &amp; Jenny
-            </li>
-            <li>
-              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              <strong>Ambiance festive 10 min</strong> – participation invités
-            </li>
-            <li>
-              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              Costumes Bollywood inclus
-            </li>
-            <li>
-              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              Chorégraphies originales créées sur mesure
-            </li>
-          </ul>
-          <div class="duration-info">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            Total TTC&nbsp;: <strong>300,00 €</strong>
-          </div>
-        </div>
-      </div>
 
       <!-- Card 2 – Classique – 452 € -->
       <div class="option">
@@ -899,32 +923,19 @@
           </div>
           <div class="option-price">452,00 € TTC</div>
         </div>
-        <div class="option-description">
-          <p>
-            Animation Bollywood avec un groupe de <strong>6 danseurs professionnels</strong>,
-            2 danses Bollywood dynamiques + 10 min d'ambiance festive avec participation des invités.
-          </p>
+        <div class="duration-info" style="margin:0;">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          Durée totale&nbsp;: <strong>20 min</strong> (ambiance Bhangra incluse)
         </div>
-        <div class="prestations-list">
-          <h4>
-            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            Détail tarifaire&nbsp;:
-          </h4>
-          <ul>
-            <li>
-              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              Tarif prestation : <strong>420 €</strong>
-            </li>
-            <li>
-              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              Frais de déplacement : <strong>32 €</strong>
-            </li>
-          </ul>
-          <div class="duration-info">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            Total TTC&nbsp;: <strong>452,00 €</strong>
-          </div>
+        <div class="chips-row">
+          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>2 danses Bollywood</span>
+          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Ambiance Bhangra 10 min</span>
+          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Costumes inclus</span>
+          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>6 danseurs pros</span>
+          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Chorégraphies originales</span>
+          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Participation invités</span>
         </div>
+        <div class="tarif-line">Prestation <strong>420 €</strong> + Déplacement <strong>32 €</strong> = <strong>452,00 € TTC</strong></div>
       </div>
 
       <!-- Card 3 – Prestige – 582 € (recommandée) -->
@@ -939,32 +950,19 @@
           </div>
           <div class="option-price">582,00 € TTC</div>
         </div>
-        <div class="option-description">
-          <p>
-            Animation Bollywood spectaculaire avec un groupe de <strong>10 danseurs professionnels</strong>,
-            2 danses Bollywood dynamiques + 10 min d'ambiance festive avec participation des invités.
-          </p>
+        <div class="duration-info" style="margin:0;">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          Durée totale&nbsp;: <strong>20 min</strong> (ambiance Bhangra incluse)
         </div>
-        <div class="prestations-list">
-          <h4>
-            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            Détail tarifaire&nbsp;:
-          </h4>
-          <ul>
-            <li>
-              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              Tarif prestation : <strong>550 €</strong>
-            </li>
-            <li>
-              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              Frais de déplacement : <strong>32 €</strong>
-            </li>
-          </ul>
-          <div class="duration-info">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            Total TTC&nbsp;: <strong>582,00 €</strong>
-          </div>
+        <div class="chips-row">
+          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>2 danses Bollywood</span>
+          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Ambiance Bhangra 10 min</span>
+          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Costumes inclus</span>
+          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>10 danseurs pros</span>
+          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Chorégraphies originales</span>
+          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Participation invités</span>
         </div>
+        <div class="tarif-line">Prestation <strong>550 €</strong> + Déplacement <strong>32 €</strong> = <strong>582,00 € TTC</strong></div>
       </div>
 
     </div><!-- /formules-grid -->
