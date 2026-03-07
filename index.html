@@ -29,7 +29,7 @@
     /* Navigation */
     .top-nav {
       width: 100%;
-      max-width: 900px;
+      max-width: 1200px;
       background: rgba(0, 0, 0, 0.92);
       border: 2px solid #d29d59;
       border-radius: 12px;
@@ -91,7 +91,7 @@
     /* Container */
     .devis-container {
       width: 100%;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
       background: rgba(0, 0, 0, 0.92);
       border-radius: 20px;
@@ -601,6 +601,73 @@
       letter-spacing: 0.5px;
     }
 
+    /* Formulas Grid */
+    .formules-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      padding: 30px;
+      background: rgba(15, 15, 15, 0.95);
+      border-bottom: 1px solid rgba(210, 157, 89, 0.3);
+    }
+
+    .formules-grid .option {
+      border-bottom: none !important;
+      border-radius: 12px;
+      border: 1px solid rgba(210, 157, 89, 0.2);
+      padding: 20px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .formules-grid .option.recommended {
+      border: 2px solid #d29d59;
+      box-shadow: 0 0 30px rgba(210, 157, 89, 0.14);
+    }
+
+    .formules-grid .option .option-header {
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .formules-grid .option .option-title {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .formules-grid .option .option-name {
+      font-size: 1.05rem;
+      text-align: center;
+    }
+
+    .formules-grid .option .option-price {
+      font-size: 1.4rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    .formules-grid .option .prestations-list {
+      flex-grow: 1;
+    }
+
+    .recommend-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #d29d59;
+      color: #000;
+      font-size: 0.70rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 4px 16px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
     /* Responsive - Tablette */
     @media (max-width: 900px) {
       body { padding: 30px 15px; }
@@ -608,36 +675,47 @@
       .header, .option, .mentions, .footer, .signature-section { padding-left: 25px; padding-right: 25px; }
       .mentions-grid { grid-template-columns: repeat(2, 1fr); }
       .signature-grid { grid-template-columns: 1fr; }
+      .formules-grid { grid-template-columns: 1fr; padding: 20px 15px; gap: 20px; }
+      .formules-grid .option { padding: 25px 20px; }
     }
 
     /* Responsive - Mobile */
     @media (max-width: 680px) {
-      body { padding: 15px 10px; }
+      body { padding: 10px 8px; }
       .devis-container { border-radius: 12px; }
-      .header { padding: 25px 20px; }
-      .header h1 { font-size: 1.8rem; }
-      .header .subtitle { font-size: 1rem; }
-      .logo { max-width: 140px; }
-      .bollywood-logo { max-width: 240px; margin: 15px auto; }
-      .client-info { flex-direction: column; gap: 20px; padding: 25px 20px; align-items: center; }
+      .top-nav { padding: 10px 12px; gap: 6px; }
+      .nav-link { font-size: 0.78rem; padding: 6px 10px; }
+      .nav-label { font-size: 0.75rem; }
+      .header { padding: 20px 15px; }
+      .header h1 { font-size: 1.6rem; }
+      .header .subtitle { font-size: 0.95rem; }
+      .logo { max-width: 130px; }
+      .bollywood-logo { max-width: 220px; margin: 12px auto; }
+      .client-info { flex-direction: column; gap: 15px; padding: 20px 15px; align-items: center; }
       .client-info div { min-width: 100%; }
-      .section-title { padding: 15px 20px; font-size: 1.1rem; }
-      .option { padding: 25px 20px; }
-      .option-header { flex-direction: column; gap: 15px; align-items: center; }
-      .option-title { flex-direction: column; gap: 10px; align-items: center; }
-      .option-name { font-size: 1.15rem; }
-      .option-price { font-size: 1.3rem; padding: 10px 20px; }
-      .option-description { padding: 15px; }
-      .prestations-list { padding: 20px 15px; }
-      .prestations-list h4 { font-size: 1rem; flex-direction: column; gap: 5px; }
-      .duration-info { padding: 10px 15px; font-size: 0.9rem; flex-direction: column; gap: 5px; }
-      .frais-deplacement, .note-video { padding: 15px 20px; font-size: 0.9rem; flex-direction: column; gap: 8px; }
-      .mentions { padding: 25px 20px; }
+      .section-title { padding: 12px 15px; font-size: 1rem; }
+      .option { padding: 20px 15px; }
+      .option-header { flex-direction: column; gap: 12px; align-items: center; }
+      .option-title { flex-direction: column; gap: 8px; align-items: center; }
+      .option-name { font-size: 1.05rem; }
+      .option-price { font-size: 1.2rem; padding: 10px 18px; }
+      .option-description { padding: 12px; }
+      .option-description p { font-size: 0.9rem; }
+      .prestations-list { padding: 15px 12px; }
+      .prestations-list h4 { font-size: 0.95rem; flex-direction: column; gap: 5px; }
+      .prestations-list li { font-size: 0.88rem; padding-left: 28px; }
+      .duration-info { padding: 10px 12px; font-size: 0.85rem; flex-direction: column; gap: 5px; }
+      .frais-deplacement, .note-video { padding: 12px 15px; font-size: 0.85rem; flex-direction: column; gap: 8px; text-align: center; }
+      .formules-grid { padding: 12px 8px; gap: 30px; }
+      .formules-grid .option { padding: 20px 15px; }
+      .recommend-badge { font-size: 0.65rem; padding: 3px 12px; }
+      .mentions { padding: 20px 15px; }
       .mentions-grid { grid-template-columns: 1fr; }
       .mention-card { padding: 15px; }
-      .footer { padding: 25px 20px; }
-      .footer-logo { max-width: 100px; }
-      .signature-section { padding: 25px 20px; }
+      .footer { padding: 20px 15px; }
+      .footer-logo { max-width: 90px; }
+      .footer p { font-size: 0.85rem; }
+      .signature-section { padding: 20px 15px; }
       .signature-grid { grid-template-columns: 1fr; }
     }
 
@@ -761,130 +839,135 @@
       CHOISISSEZ VOTRE FORMULE
     </div>
 
-    <!-- Option 1 -->
-    <div class="option">
-      <div class="option-header">
-        <div class="option-title">
-          <div class="checkbox">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          </div>
-          <div class="option-name">Formule <span>« CLASSIQUE »</span> – Groupe de 6 Danseurs</div>
-        </div>
-        <div class="option-price">452,00 € TTC</div>
-      </div>
-      <div class="option-description">
-        <p>
-          Animation Bollywood avec un groupe de <strong>6 danseurs professionnels</strong>, 
-          2 danses Bollywood dynamiques + 10 minutes d'ambiance festive avec participation des invités.
-        </p>
-      </div>
-      <div class="prestations-list">
-        <h4>
-          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          Détail tarifaire&nbsp;:
-        </h4>
-        <ul>
-          <li>
-            <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Tarif prestation : <strong>420 €</strong>
-          </li>
-          <li>
-            <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Frais de déplacement : <strong>32 €</strong>
-          </li>
-        </ul>
-        <div class="duration-info">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-          Total TTC&nbsp;: <strong>452,00 €</strong>
-        </div>
-      </div>
-    </div>
+    <div class="formules-grid">
 
-    <!-- Option 2 -->
-    <div class="option">
-      <div class="option-header">
-        <div class="option-title">
-          <div class="checkbox">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      <!-- Card 1 – 2 Danseurs – 300 € -->
+      <div class="option">
+        <div class="option-header">
+          <div class="option-title">
+            <div class="checkbox">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+            <div class="option-name">Option <span>« 2 DANSEURS »</span><br><small style="color:#aaa;font-weight:400;">(Praful &amp; Jenny)</small></div>
           </div>
-          <div class="option-name">Formule <span>« PRESTIGE »</span> – Groupe de 10 Danseurs</div>
+          <div class="option-price">300,00 € TTC</div>
         </div>
-        <div class="option-price">582,00 € TTC</div>
-      </div>
-      <div class="option-description">
-        <p>
-          Animation Bollywood spectaculaire avec un groupe de <strong>10 danseurs professionnels</strong>,
-          2 danses Bollywood dynamiques + 10 minutes d'ambiance festive avec participation des invités.
-        </p>
-      </div>
-      <div class="prestations-list">
-        <h4>
-          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          Détail tarifaire&nbsp;:
-        </h4>
-        <ul>
-          <li>
-            <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Tarif prestation : <strong>550 €</strong>
-          </li>
-          <li>
-            <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Frais de déplacement : <strong>32 €</strong>
-          </li>
-        </ul>
-        <div class="duration-info">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-          Total TTC&nbsp;: <strong>582,00 €</strong>
+        <div class="option-description">
+          <p>
+            Ajout de <strong>2 danseurs professionnels (Praful &amp; Jenny)</strong> à votre formule choisie,
+            pour un <strong>show de 10 min + ambiance de 10 min</strong>.
+          </p>
+        </div>
+        <div class="prestations-list">
+          <h4>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            Détail des prestations&nbsp;:
+          </h4>
+          <ul>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <strong>Show Bollywood de 10 min</strong> – Praful &amp; Jenny
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <strong>Ambiance festive 10 min</strong> – participation invités
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Costumes Bollywood inclus
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Chorégraphies originales créées sur mesure
+            </li>
+          </ul>
+          <div class="duration-info">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            Total TTC&nbsp;: <strong>300,00 €</strong>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Option 3 – 2 Danseurs Supplémentaires -->
-    <div class="option">
-      <div class="option-header">
-        <div class="option-title">
-          <div class="checkbox">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      <!-- Card 2 – Classique – 452 € -->
+      <div class="option">
+        <div class="option-header">
+          <div class="option-title">
+            <div class="checkbox">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+            <div class="option-name">Formule <span>« CLASSIQUE »</span><br><small style="color:#aaa;font-weight:400;">Groupe de 6 Danseurs</small></div>
           </div>
-          <div class="option-name">Option <span>« 2 DANSEURS »</span> = 300,00 € (Praful &amp; Jenny)</div>
+          <div class="option-price">452,00 € TTC</div>
         </div>
-        <div class="option-price">300,00 € TTC</div>
-      </div>
-      <div class="option-description">
-        <p>
-          Ajout de <strong>2 danseurs professionnels (Praful &amp; Jenny)</strong> à votre formule choisie,
-          pour un <strong>show de 10 min + ambiance de 10 min</strong>.
-        </p>
-      </div>
-      <div class="prestations-list">
-        <h4>
-          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          Détail des prestations incluses&nbsp;:
-        </h4>
-        <ul>
-          <li>
-            <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            <strong>Show Bollywood de 10 minutes</strong> – Praful &amp; Jenny
-          </li>
-          <li>
-            <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            <strong>Ambiance festive de 10 minutes</strong> – participation des invités
-          </li>
-          <li>
-            <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Costumes Bollywood inclus pour Praful &amp; Jenny
-          </li>
-          <li>
-            <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Chorégraphies originales créées spécialement pour l'événement
-          </li>
-        </ul>
-        <div class="duration-info">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-          2 danseurs = 300,00 € (Praful &amp; Jenny) = <strong>Show 10 min + Ambiance 10 min</strong>
+        <div class="option-description">
+          <p>
+            Animation Bollywood avec un groupe de <strong>6 danseurs professionnels</strong>,
+            2 danses Bollywood dynamiques + 10 min d'ambiance festive avec participation des invités.
+          </p>
+        </div>
+        <div class="prestations-list">
+          <h4>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            Détail tarifaire&nbsp;:
+          </h4>
+          <ul>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Tarif prestation : <strong>420 €</strong>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Frais de déplacement : <strong>32 €</strong>
+            </li>
+          </ul>
+          <div class="duration-info">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            Total TTC&nbsp;: <strong>452,00 €</strong>
+          </div>
         </div>
       </div>
-    </div>
+
+      <!-- Card 3 – Prestige – 582 € (recommandée) -->
+      <div class="option recommended">
+        <div class="recommend-badge">✦ Notre suggestion</div>
+        <div class="option-header">
+          <div class="option-title">
+            <div class="checkbox">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+            <div class="option-name">Formule <span>« PRESTIGE »</span><br><small style="color:#aaa;font-weight:400;">Groupe de 10 Danseurs</small></div>
+          </div>
+          <div class="option-price">582,00 € TTC</div>
+        </div>
+        <div class="option-description">
+          <p>
+            Animation Bollywood spectaculaire avec un groupe de <strong>10 danseurs professionnels</strong>,
+            2 danses Bollywood dynamiques + 10 min d'ambiance festive avec participation des invités.
+          </p>
+        </div>
+        <div class="prestations-list">
+          <h4>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            Détail tarifaire&nbsp;:
+          </h4>
+          <ul>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Tarif prestation : <strong>550 €</strong>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Frais de déplacement : <strong>32 €</strong>
+            </li>
+          </ul>
+          <div class="duration-info">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            Total TTC&nbsp;: <strong>582,00 €</strong>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /formules-grid -->
 
     <!-- Frais de déplacement -->
     <div class="frais-deplacement">
@@ -897,66 +980,6 @@
       Devis établi dans le cadre d'une animation Bollywood surprise – Mariage du 1er Septembre 2026
     </div>
 
-    <!-- ====== CONDITIONS & MENTIONS ====== -->
-    <div class="mentions">
-      <h3>
-        <svg class="icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-        Conditions &amp; Mentions Légales
-      </h3>
-      <div class="mentions-grid">
-        <div class="mention-card">
-          <h4>
-            <svg class="icon icon-small" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            Validité du Devis
-          </h4>
-          <p>Ce devis est valable <strong>30 jours</strong> à compter de sa date d'émission.</p>
-        </div>
-        <div class="mention-card">
-          <h4>
-            <svg class="icon icon-small" viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
-            Paiement
-          </h4>
-          <p>Acompte de 30% à la signature. Solde à régler 15 jours avant la prestation.</p>
-        </div>
-        <div class="mention-card">
-          <h4>
-            <svg class="icon icon-small" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
-            Annulation
-          </h4>
-          <p>Annulation gratuite jusqu'à 60 jours avant l'événement. Des frais s'appliquent passé ce délai.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ====== VALIDITÉ & SIGNATURE ====== -->
-    <div class="signature-section">
-      <h3>Validité &amp; Acceptation</h3>
-
-      <div class="option-choice-box">
-        <h4>Option choisie</h4>
-        <p>
-          ☐ &nbsp;Option 1 – Formule Classique – Groupe de 6 danseurs – <strong style="color:#d29d59;">452,00 € TTC</strong><br/>
-          ☐ &nbsp;Option 2 – Formule Prestige – Groupe de 10 danseurs – <strong style="color:#d29d59;">582,00 € TTC</strong><br/>
-          ☐ &nbsp;Option « 2 Danseurs » – Praful &amp; Jenny (Show 10min + Ambiance 10min) – <strong style="color:#d29d59;">300,00 € TTC</strong>
-        </p>
-      </div>
-
-      <div class="signature-grid">
-        <div class="signature-card">
-          <h4>Signature du Client</h4>
-          <p style="color:#888;">Nom et Prénom : ___________________________________</p>
-          <div class="signature-line"></div>
-          <div class="signature-label">Signature + mention « Bon pour accord »</div>
-        </div>
-        <div class="signature-card">
-          <h4>Pour Parvati India</h4>
-          <p style="color:#888;">Date d'émission du devis : ___________________</p>
-          <div class="signature-line"></div>
-          <div class="signature-label">Signature &amp; Cachet Parvati India</div>
-        </div>
-      </div>
-    </div>
-
     <!-- ====== FOOTER ====== -->
     <div class="footer">
       <img src="https://parvati-india.fr/wp-content/uploads/2023/10/LOGO-PARVATI-INDIA-2.png" alt="Parvati India" class="footer-logo" onerror="this.style.display='none'" />
@@ -964,7 +987,12 @@
         <svg class="icon icon-small" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
         www.parvati-india.fr
       </a>
-      <p>📧 contact@parvati-india.fr &nbsp;|&nbsp; 🎭 Compagnie Parvati India – Danse Bollywood</p>
+      <p style="margin-bottom:6px;">
+        📞 <a href="tel:+33631321053" style="color:#d29d59;text-decoration:none;font-weight:600;">06 31 32 10 53</a>
+        &nbsp;|&nbsp;
+        📧 <a href="mailto:contact@parvati-india.fr" style="color:#d29d59;text-decoration:none;">contact@parvati-india.fr</a>
+      </p>
+      <p style="color:#888;font-size:0.82rem;margin-bottom:4px;">Julien (Praful) – Parvati India</p>
       <div class="footer-signature">✦ &nbsp;Que votre mariage soit empli de joie, de couleurs et de danse !&nbsp; ✦</div>
       <div class="footer-mention">Parvati India · Compagnie de Danse Indienne &amp; Bollywood · Devis non contractuel avant signature</div>
     </div>
