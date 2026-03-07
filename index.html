@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DEVIS – Animation Danse Bollywood pour Mariage – Parvati India</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:        #C49A3C;
+      --gold-light:  #E8C96D;
+      --gold-dark:   #9B7620;
+      --crimson:     #9B1C2E;
+      --crimson-dark:#6B1020;
+      --saffron:     #E07B27;
+      --saffron-light:#F0A050;
+      --ivory:       #FDF8F0;
+      --text-dark:   #2C1810;
+      --text-mid:    #5A3A28;
+      --bg-overlay:  rgba(253, 248, 240, 0.92);
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text-dark);
+      background-color: var(--ivory);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ========== BACKGROUND ========== */
+    .bg-wrapper {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .bg-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.18;
+      filter: saturate(1.4) brightness(0.9);
+    }
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      background: var(--bg-overlay);
+    }
+
+    /* ========== MAIN WRAPPER ========== */
+    .page {
+      position: relative;
+      z-index: 2;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+    }
+
+    /* ========== ORNAMENT LINES ========== */
+    .ornament-bar {
+      height: 4px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold) 20%, var(--saffron) 50%, var(--gold) 80%, transparent 100%);
+      border-radius: 2px;
+      margin: 18px 0;
+    }
+    .ornament-bar--thin {
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold-light) 30%, var(--gold-light) 70%, transparent 100%);
+      margin: 12px 0;
+    }
+
+    /* ========== HEADER ========== */
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 0 10px;
+      gap: 14px;
+    }
+    .header__logo-main {
+      height: 100px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(196,154,60,0.35));
+    }
+    .header__logos-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 20px;
+    }
+    .header__logo-bollywood {
+      height: 90px;
+      object-fit: contain;
+    }
+    .header__title-block {
+      flex: 1;
+      text-align: center;
+    }
+    .header__company {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--crimson);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    .header__main-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--crimson);
+      line-height: 1.2;
+      margin: 6px 0 4px;
+    }
+    .header__main-title span {
+      color: var(--gold-dark);
+    }
+    .header__subtitle {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* ========== DEVIS BADGE ========== */
+    .devis-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dark) 100%);
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 6px 28px;
+      border-radius: 40px;
+      border: 2px solid var(--gold);
+      margin: 4px 0;
+      box-shadow: 0 3px 12px rgba(155,28,46,0.25);
+    }
+
+    /* ========== SECTION TITLES ========== */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--crimson);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0 0 6px 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold-light) 0%, transparent 100%);
+    }
+
+    /* ========== INFO CARDS ========== */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 18px 0;
+    }
+    @media (max-width: 600px) {
+      .info-grid { grid-template-columns: 1fr; }
+    }
+
+    .info-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(253,248,240,0.98) 100%);
+      border: 1px solid rgba(196,154,60,0.3);
+      border-radius: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 12px rgba(196,154,60,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .info-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--gold) 0%, var(--saffron) 100%);
+      border-radius: 4px 0 0 4px;
+    }
+    .info-card__label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 4px;
+    }
+    .info-card__value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+    .info-card__note {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* ========== PRESTATION SECTION ========== */
+    .prestation-box {
+      background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(253,248,240,0.99) 100%);
+      border: 1px solid rgba(196,154,60,0.25);
+      border-radius: 14px;
+      padding: 26px 30px;
+      margin: 18px 0;
+      box-shadow: 0 4px 20px rgba(196,154,60,0.1);
+    }
+    .prestation-intro {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--text-mid);
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+      line-height: 1.7;
+      border-left: 3px solid var(--gold-light);
+      padding-left: 14px;
+    }
+    .prestation-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .prestation-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+    .prestation-list li .icon {
+      color: var(--gold);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ========== OPTIONS ========== */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin: 18px 0;
+    }
+    @media (max-width: 620px) {
+      .options-grid { grid-template-columns: 1fr; }
+    }
+
+    .option-card {
+      border-radius: 16px;
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.12);
+    }
+    .option-card--1 {
+      background: linear-gradient(160deg, #FFFAF4 0%, #FFF4E0 100%);
+      border: 2px solid var(--gold);
+    }
+    .option-card--2 {
+      background: linear-gradient(160deg, #FFF4F6 0%, #FFE8EE 100%);
+      border: 2px solid var(--crimson);
+    }
+
+    .option-card__badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 0 14px 0 14px;
+    }
+    .option-card--1 .option-card__badge {
+      background: var(--gold);
+      color: #fff;
+    }
+    .option-card--2 .option-card__badge {
+      background: var(--crimson);
+      color: #fff;
+    }
+
+    .option-card__number {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .option-card--1 .option-card__number { color: var(--gold-dark); }
+    .option-card--2 .option-card__number { color: var(--crimson); }
+
+    .option-card__name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+
+    .option-card__details {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .option-card__detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      border-bottom: 1px dashed rgba(196,154,60,0.3);
+      padding-bottom: 6px;
+    }
+    .option-card__detail-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .option-card__detail-label { font-weight: 400; }
+    .option-card__detail-value { font-weight: 700; }
+
+    .option-card__total {
+      border-radius: 10px;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .option-card--1 .option-card__total {
+      background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
+      color: #fff;
+    }
+    .option-card--2 .option-card__total {
+      background: linear-gradient(135deg, var(--crimson-dark) 0%, var(--crimson) 100%);
+      color: #fff;
+    }
+    .option-card__total-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .option-card__total-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .option-card__total-tax {
+      font-size: 0.7rem;
+      opacity: 0.85;
+      margin-top: 2px;
+      text-align: right;
+    }
+    .option-card__total-right { text-align: right; }
+
+    /* ========== NOTE SECTION ========== */
+    .note-box {
+      background: linear-gradient(135deg, rgba(196,154,60,0.08) 0%, rgba(224,123,39,0.06) 100%);
+      border: 1px solid rgba(196,154,60,0.3);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 18px 0;
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .note-box strong {
+      color: var(--gold-dark);
+      font-weight: 700;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      margin-top: 36px;
+      text-align: center;
+    }
+    .footer__contact {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+    .footer__contact-item {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer__contact-item .icon {
+      color: var(--gold);
+    }
+    .footer__signature {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--crimson);
+      margin-top: 10px;
+    }
+    .footer__mention {
+      font-size: 0.72rem;
+      color: #a08060;
+      margin-top: 10px;
+      letter-spacing: 0.08em;
+    }
+
+    /* ========== VALIDITY + SIGNATURE AREA ========== */
+    .validity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 18px 0;
+    }
+    @media (max-width: 580px) {
+      .validity-grid { grid-template-columns: 1fr; }
+    }
+    .validity-card {
+      background: rgba(255,255,255,0.97);
+      border: 1px solid rgba(196,154,60,0.25);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .validity-card__title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+    }
+    .validity-card__text {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    .signature-line {
+      border-bottom: 1px solid var(--gold-light);
+      margin-top: 30px;
+      height: 1px;
+    }
+    .signature-label {
+      font-size: 0.72rem;
+      color: #b09070;
+      margin-top: 6px;
+      text-align: center;
+      letter-spacing: 0.1em;
+    }
+
+    /* ========== DECORATIVE MANDALA CORNERS ========== */
+    .corner-decor {
+      position: absolute;
+      opacity: 0.12;
+      font-size: 6rem;
+      color: var(--gold);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ========== PRINT STYLES ========== */
+    @media print {
+      body { background: white; }
+      .bg-wrapper, .bg-overlay { display: none; }
+      .page { padding: 0 10px; max-width: 100%; }
+      .option-card, .info-card, .prestation-box { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background decorative image -->
+  <div class="bg-wrapper" aria-hidden="true">
+    <img src="https://parvati-india.fr/wp-content/uploads/2025/12/Untitled-design.gif" alt="" />
+  </div>
+  <div class="bg-overlay" aria-hidden="true"></div>
+
+  <div class="page">
+
+    <!-- ====== HEADER ====== -->
+    <header class="header">
+      <img
+        class="header__logo-main"
+        src="https://parvati-india.fr/wp-content/uploads/2025/12/logo.webp"
+        alt="Parvati India – logo principal"
+        onerror="this.style.display='none'"
+      />
+
+      <div class="header__logos-row">
+        <img
+          class="header__logo-bollywood"
+          src="https://parvati-india.fr/wp-content/uploads/2026/01/LOGO-BOLLYWOOD.png"
+          alt="Logo Bollywood"
+          onerror="this.style.display='none'"
+        />
+        <div class="header__title-block">
+          <div class="header__company">Parvati India</div>
+          <h1 class="header__main-title">DEVIS<br/><span>Animation Danse Bollywood</span><br/>pour Mariage</h1>
+          <div class="header__subtitle">Compagnie de Danse Indienne</div>
+          <div style="margin-top:10px;">
+            <span class="devis-badge">✦ Offre Personnalisée ✦</span>
+          </div>
+        </div>
+        <img
+          class="header__logo-bollywood"
+          src="https://parvati-india.fr/wp-content/uploads/2026/01/LOGO-BOLLYWOOD.png"
+          alt=""
+          aria-hidden="true"
+          onerror="this.style.display='none'"
+          style="transform:scaleX(-1);"
+        />
+      </div>
+    </header>
+
+    <div class="ornament-bar"></div>
+
+    <!-- ====== INFORMATIONS ÉVÉNEMENT ====== -->
+    <section aria-labelledby="event-title">
+      <div class="section-title" id="event-title">Informations Événement</div>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card__label">Type d'événement</div>
+          <div class="info-card__value">Mariage – Surprise pour la Mariée</div>
+          <div class="info-card__note">Animation Bollywood surprise</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card__label">Date & Horaire</div>
+          <div class="info-card__value">Mardi 1<sup>er</sup> Septembre 2026</div>
+          <div class="info-card__note">Entre 19h00 et 19h30</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card__label">Lieu</div>
+          <div class="info-card__value">Château de Senaillac</div>
+          <div class="info-card__note">33370 Tresses</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card__label">Contexte</div>
+          <div class="info-card__value">Surprise Bollywood</div>
+          <div class="info-card__note">La mariée est d'origine pakistanaise, fan de danse Bollywood</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ornament-bar--thin"></div>
+
+    <!-- ====== DESCRIPTION DE LA PRESTATION ====== -->
+    <section aria-labelledby="prestation-title">
+      <div class="section-title" id="prestation-title">Description de la Prestation</div>
+      <div class="prestation-box">
+        <p class="prestation-intro">
+          Une animation Bollywood surprenante et mémorable pour créer un moment festif unique
+          pour les mariés et leurs invités. Un tourbillon de couleurs, de musique et de joie
+          inspiré du cinéma indien !
+        </p>
+        <ul class="prestation-list">
+          <li>
+            <span class="icon">🎭</span>
+            <span><strong>2 danses Bollywood dynamiques</strong> – durée approximative de 6 à 8 minutes</span>
+          </li>
+          <li>
+            <span class="icon">👗</span>
+            <span><strong>Costumes inclus</strong> – tenues traditionnelles et colorées adaptées au style Bollywood</span>
+          </li>
+          <li>
+            <span class="icon">🎶</span>
+            <span><strong>Préparation chorégraphique</strong> – chorégraphies originales créées spécialement pour l'événement</span>
+          </li>
+          <li>
+            <span class="icon">🎵</span>
+            <span><strong>Coordination musicale</strong> – avec le DJ ou l'organisation du mariage</span>
+          </li>
+          <li>
+            <span class="icon">🥳</span>
+            <span><strong>10 minutes d'ambiance indienne festive</strong> après les deux danses, avec participation des invités et des mariés</span>
+          </li>
+          <li>
+            <span class="icon">✨</span>
+            <span><strong>Animation surprise</strong> – mise en scène festive créant un moment magique et inoubliable</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="ornament-bar--thin"></div>
+
+    <!-- ====== OPTIONS TARIFAIRES ====== -->
+    <section aria-labelledby="options-title">
+      <div class="section-title" id="options-title">Options Tarifaires</div>
+      <div class="options-grid">
+
+        <!-- Option 1 -->
+        <div class="option-card option-card--1">
+          <span class="option-card__badge">✦ Classique</span>
+          <div class="option-card__number">Option 1</div>
+          <div class="option-card__name">Groupe de<br/>6 Danseurs</div>
+          <div class="option-card__details">
+            <div class="option-card__detail-row">
+              <span class="option-card__detail-label">Tarif prestation</span>
+              <span class="option-card__detail-value">420 €</span>
+            </div>
+            <div class="option-card__detail-row">
+              <span class="option-card__detail-label">Frais de déplacement</span>
+              <span class="option-card__detail-value">32 €</span>
+            </div>
+          </div>
+          <div class="option-card__total">
+            <span class="option-card__total-label">Total TTC</span>
+            <div class="option-card__total-right">
+              <div class="option-card__total-amount">452 €</div>
+              <div class="option-card__total-tax">Toutes taxes comprises</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Option 2 -->
+        <div class="option-card option-card--2">
+          <span class="option-card__badge">★ Prestige</span>
+          <div class="option-card__number">Option 2</div>
+          <div class="option-card__name">Groupe de<br/>10 Danseurs</div>
+          <div class="option-card__details">
+            <div class="option-card__detail-row">
+              <span class="option-card__detail-label">Tarif prestation</span>
+              <span class="option-card__detail-value">550 €</span>
+            </div>
+            <div class="option-card__detail-row">
+              <span class="option-card__detail-label">Frais de déplacement</span>
+              <span class="option-card__detail-value">32 €</span>
+            </div>
+          </div>
+          <div class="option-card__total">
+            <span class="option-card__total-label">Total TTC</span>
+            <div class="option-card__total-right">
+              <div class="option-card__total-amount">582 €</div>
+              <div class="option-card__total-tax">Toutes taxes comprises</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="ornament-bar--thin"></div>
+
+    <!-- ====== INCLUS DANS LES DEUX OPTIONS ====== -->
+    <section aria-labelledby="included-title">
+      <div class="section-title" id="included-title">Inclus dans les Deux Options</div>
+      <div class="note-box">
+        <strong>✦ Costumes Bollywood</strong> – Tenues de scène traditionnelles incluses pour tous les danseurs<br/>
+        <strong>✦ Chorégraphies originales</strong> – Créées et répétées spécialement pour votre événement<br/>
+        <strong>✦ Coordination avec votre DJ</strong> – Prise en charge de la bande-son et synchronisation musicale<br/>
+        <strong>✦ Animation participative</strong> – 10 minutes d'ambiance festive avec vos invités après le spectacle<br/>
+        <strong>✦ Frais de déplacement inclus</strong> – Déplacement au Château de Senaillac (33370 Tresses)
+      </div>
+    </section>
+
+    <div class="ornament-bar--thin"></div>
+
+    <!-- ====== VALIDITÉ & SIGNATURE ====== -->
+    <section aria-labelledby="validity-title">
+      <div class="section-title" id="validity-title">Validité & Acceptation</div>
+      <div class="validity-grid">
+        <div class="validity-card">
+          <div class="validity-card__title">Validité du Devis</div>
+          <div class="validity-card__text">
+            Ce devis est valable <strong>30 jours</strong> à compter de sa date d'émission.
+            Pour confirmer votre réservation, merci de retourner ce document signé
+            avec la mention « Bon pour accord ».
+          </div>
+        </div>
+        <div class="validity-card">
+          <div class="validity-card__title">Option choisie</div>
+          <div class="validity-card__text">
+            ☐ &nbsp;Option 1 – Groupe de 6 danseurs – <strong>452 € TTC</strong><br/><br/>
+            ☐ &nbsp;Option 2 – Groupe de 10 danseurs – <strong>582 € TTC</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="validity-grid" style="margin-top: 10px;">
+        <div class="validity-card">
+          <div class="validity-card__title">Signature du Client</div>
+          <div class="validity-card__text" style="font-size:0.78rem; color:#b09070;">
+            Nom et Prénom : ___________________________________<br/><br/>
+          </div>
+          <div class="signature-line"></div>
+          <div class="signature-label">Signature + mention « Bon pour accord »</div>
+        </div>
+        <div class="validity-card">
+          <div class="validity-card__title">Pour Parvati India</div>
+          <div class="validity-card__text" style="font-size:0.78rem; color:#b09070;">
+            Date d'émission du devis : ___________________<br/><br/>
+          </div>
+          <div class="signature-line"></div>
+          <div class="signature-label">Signature & Cachet Parvati India</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ornament-bar"></div>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="footer">
+      <div class="footer__contact">
+        <div class="footer__contact-item">
+          <span class="icon">🌐</span>
+          <span>www.parvati-india.fr</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="icon">📧</span>
+          <span>contact@parvati-india.fr</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="icon">🎭</span>
+          <span>Compagnie Parvati India – Danse Bollywood</span>
+        </div>
+      </div>
+      <div class="footer__signature">
+        ✦ &nbsp;Que votre mariage soit empli de joie, de couleurs et de danse !&nbsp; ✦
+      </div>
+      <div class="footer__mention">
+        Parvati India · Compagnie de Danse Indienne & Bollywood · Devis non contractuel avant signature
+      </div>
+    </footer>
+
+  </div><!-- /page -->
+
+</body>
+</html>
