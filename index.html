@@ -249,29 +249,6 @@
       gap: 15px;
     }
 
-    .checkbox {
-      width: 28px;
-      height: 28px;
-      border: 3px solid #d29d59;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      background: transparent;
-      flex-shrink: 0;
-    }
-
-    .checkbox:hover {
-      background: rgba(210, 157, 89, 0.2);
-    }
-
-    .checkbox .icon {
-      fill: #d29d59;
-      opacity: 0;
-    }
-
     .option-name {
       font-size: 1.4rem;
       color: #fff;
@@ -398,23 +375,13 @@
       flex-wrap: wrap;
     }
 
-    /* Option sélectionnée */
-    .option.selected {
+    /* Formule retenue - badge de confirmation */
+    .formule-retenue-wrap .option,
+    .formule-retenue-wrap .option:hover {
       background: rgba(210, 157, 89, 0.08);
-      border-left: 6px solid #d29d59;
     }
 
-    .option.selected .checkbox {
-      background: #d29d59;
-      border-color: #d29d59;
-    }
-
-    .option.selected .checkbox .icon {
-      fill: #000;
-      opacity: 1;
-    }
-
-    .selected-label {
+    .option-name .retenue-badge {
       background: #d29d59;
       color: #000;
       padding: 4px 14px;
@@ -618,50 +585,48 @@
       letter-spacing: 0.5px;
     }
 
-    /* Formulas Grid */
-    .formules-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-      padding: 30px;
+    /* Formule retenue */
+    .formule-retenue-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 35px 30px;
       background: rgba(15, 15, 15, 0.95);
       border-bottom: 1px solid rgba(210, 157, 89, 0.3);
     }
 
-    .formules-grid .option {
+    .formule-retenue-wrap .option {
+      max-width: 560px;
+      width: 100%;
       border-bottom: none !important;
-      border-radius: 12px;
-      border: 1px solid rgba(210, 157, 89, 0.2);
-      padding: 22px 18px;
+      border-radius: 14px;
+      border: 2px solid #d29d59;
+      box-shadow: 0 0 35px rgba(210, 157, 89, 0.18);
+      padding: 30px 26px;
       position: relative;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
+      cursor: default;
     }
 
-    .formules-grid .option.recommended {
-      border: 2px solid #d29d59;
-      box-shadow: 0 0 30px rgba(210, 157, 89, 0.14);
-    }
-
-    .formules-grid .option .option-header {
+    .formule-retenue-wrap .option .option-header {
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 0;
     }
 
-    .formules-grid .option .option-title {
+    .formule-retenue-wrap .option .option-title {
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
     }
 
-    .formules-grid .option .option-name {
-      font-size: 1.05rem;
+    .formule-retenue-wrap .option .option-name {
+      font-size: 1.3rem;
       text-align: center;
     }
 
-    .formules-grid .option .option-price {
-      font-size: 1.4rem;
+    .formule-retenue-wrap .option .option-price {
+      font-size: 1.6rem;
       width: 100%;
       text-align: center;
     }
@@ -694,8 +659,8 @@
       flex-shrink: 0;
     }
 
-    /* duration-info dans la grille : texte compact */
-    .formules-grid .option .duration-info {
+    /* duration-info dans la carte formule : texte compact */
+    .formule-retenue-wrap .option .duration-info {
       font-size: 0.82rem;
       padding: 9px 12px;
       flex-wrap: wrap;
@@ -704,7 +669,7 @@
       justify-content: center;
     }
 
-    .formules-grid .option .tarif-line {
+    .formule-retenue-wrap .option .tarif-line {
       background: rgba(185, 13, 1, 0.2);
       border: 1px solid rgba(210, 157, 89, 0.3);
       border-radius: 6px;
@@ -716,22 +681,6 @@
       margin-top: auto;
     }
 
-    .recommend-badge {
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #d29d59;
-      color: #000;
-      font-size: 0.70rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      padding: 4px 16px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-
     /* Responsive - Tablette */
     @media (max-width: 900px) {
       body { padding: 30px 15px; }
@@ -739,8 +688,8 @@
       .header, .option, .mentions, .footer, .signature-section { padding-left: 25px; padding-right: 25px; }
       .mentions-grid { grid-template-columns: repeat(2, 1fr); }
       .signature-grid { grid-template-columns: 1fr; }
-      .formules-grid { grid-template-columns: 1fr; padding: 20px 15px; gap: 20px; }
-      .formules-grid .option { padding: 25px 20px; }
+      .formule-retenue-wrap { padding: 20px 15px; }
+      .formule-retenue-wrap .option { padding: 25px 20px; }
     }
 
     /* Responsive - Mobile */
@@ -770,9 +719,9 @@
       .prestations-list li { font-size: 0.88rem; padding-left: 28px; }
       .duration-info { padding: 10px 12px; font-size: 0.85rem; flex-direction: column; gap: 5px; }
       .frais-deplacement, .note-video { padding: 12px 15px; font-size: 0.85rem; flex-direction: column; gap: 8px; text-align: center; }
-      .formules-grid { padding: 12px 8px; gap: 30px; }
-      .formules-grid .option { padding: 20px 15px; }
-      .recommend-badge { font-size: 0.65rem; padding: 3px 12px; }
+      .formule-retenue-wrap { padding: 15px 8px; }
+      .formule-retenue-wrap .option { padding: 20px 15px; }
+      .retenue-badge { font-size: 0.72rem; padding: 3px 10px; }
       .mentions { padding: 20px 15px; }
       .mentions-grid { grid-template-columns: 1fr; }
       .mention-card { padding: 15px; }
@@ -904,22 +853,19 @@
       </div>
     </div>
 
-    <!-- ====== OPTIONS TARIFAIRES ====== -->
+    <!-- ====== FORMULE RETENUE ====== -->
     <div class="section-title">
       <svg class="icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
-      CHOISISSEZ VOTRE FORMULE
+      FORMULE RETENUE
     </div>
 
-    <div class="formules-grid">
+    <div class="formule-retenue-wrap">
 
-      <!-- Card 2 – Classique – 452 € (RETENUE) -->
-      <div class="option selected">
+      <!-- Formule CLASSIQUE – 452 € (RETENUE) -->
+      <div class="option">
         <div class="option-header">
           <div class="option-title">
-            <div class="checkbox">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            </div>
-            <div class="option-name">Formule <span>« CLASSIQUE »</span><span class="selected-label">✓ Retenue</span><br><small style="color:#aaa;font-weight:400;">Groupe de 6 Danseurs</small></div>
+            <div class="option-name">Formule <span>« CLASSIQUE »</span><span class="retenue-badge">✓ Retenue</span><br><small style="color:#aaa;font-weight:400;">Groupe de 6 Danseurs</small></div>
           </div>
           <div class="option-price">452,00 € TTC</div>
         </div>
@@ -938,40 +884,7 @@
         <div class="tarif-line">Prestation <strong>420 €</strong> + Déplacement <strong>32 €</strong> = <strong>452,00 € TTC</strong></div>
       </div>
 
-      <!-- Card 3 – Prestige – 582 € (recommandée) -->
-      <div class="option recommended">
-        <div class="recommend-badge">✦ Notre suggestion</div>
-        <div class="option-header">
-          <div class="option-title">
-            <div class="checkbox">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            </div>
-            <div class="option-name">Formule <span>« PRESTIGE »</span><br><small style="color:#aaa;font-weight:400;">Groupe de 10 Danseurs</small></div>
-          </div>
-          <div class="option-price">582,00 € TTC</div>
-        </div>
-        <div class="duration-info" style="margin:0;">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-          Durée totale&nbsp;: <strong>20 min</strong> (ambiance Bhangra incluse)
-        </div>
-        <div class="chips-row">
-          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>2 danses Bollywood</span>
-          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Ambiance Bhangra 10 min</span>
-          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Costumes inclus</span>
-          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>10 danseurs pros</span>
-          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Chorégraphies originales</span>
-          <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Participation invités</span>
-        </div>
-        <div class="tarif-line">Prestation <strong>550 €</strong> + Déplacement <strong>32 €</strong> = <strong>582,00 € TTC</strong></div>
-      </div>
-
-    </div><!-- /formules-grid -->
-
-    <!-- Confirmation de la prestation retenue -->
-    <div class="frais-deplacement" style="background:rgba(210,157,89,0.22);border-bottom:1px solid rgba(210,157,89,0.3);">
-      <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-      Prestation retenue&nbsp;: <strong>Formule « CLASSIQUE » – Groupe de 6 Danseurs – 452,00 € TTC</strong>
-    </div>
+    </div><!-- /formule-retenue-wrap -->
 
     <!-- Frais de déplacement -->
     <div class="frais-deplacement">
@@ -1003,16 +916,6 @@
 
   </div><!-- /devis-container -->
 
-  <script>
-    document.querySelectorAll('.option').forEach(function(option) {
-      option.addEventListener('click', function() {
-        document.querySelectorAll('.option').forEach(function(item) {
-          item.classList.remove('selected');
-        });
-        this.classList.add('selected');
-      });
-    });
-  </script>
 
 </body>
 </html>
