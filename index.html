@@ -260,17 +260,6 @@
       color: #d29d59;
     }
 
-    .option-price {
-      background: #b90d01;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 6px;
-      font-size: 1.5rem;
-      font-weight: 700;
-      box-shadow: 0 4px 15px rgba(185, 13, 1, 0.4);
-      text-align: center;
-    }
-
     .option-description {
       background: rgba(210, 157, 89, 0.1);
       padding: 20px;
@@ -346,7 +335,7 @@
       text-align: center;
     }
 
-    /* Frais & Notes */
+    /* Notes */
     .frais-deplacement {
       background: rgba(210, 157, 89, 0.15);
       padding: 15px 40px;
@@ -625,12 +614,6 @@
       text-align: center;
     }
 
-    .formule-retenue-wrap .option .option-price {
-      font-size: 1.6rem;
-      width: 100%;
-      text-align: center;
-    }
-
     /* Prestations en liste verticale */
     .chips-row {
       display: flex;
@@ -669,18 +652,6 @@
       justify-content: center;
     }
 
-    .formule-retenue-wrap .option .tarif-line {
-      background: rgba(185, 13, 1, 0.2);
-      border: 1px solid rgba(210, 157, 89, 0.3);
-      border-radius: 6px;
-      padding: 9px 12px;
-      color: #d29d59;
-      font-size: 0.82rem;
-      font-weight: 600;
-      text-align: center;
-      margin-top: auto;
-    }
-
     /* Responsive - Tablette */
     @media (max-width: 900px) {
       body { padding: 30px 15px; }
@@ -711,7 +682,6 @@
       .option-header { flex-direction: column; gap: 12px; align-items: center; }
       .option-title { flex-direction: column; gap: 8px; align-items: center; }
       .option-name { font-size: 1.05rem; }
-      .option-price { font-size: 1.2rem; padding: 10px 18px; }
       .option-description { padding: 12px; }
       .option-description p { font-size: 0.9rem; }
       .prestations-list { padding: 15px 12px; }
@@ -867,7 +837,6 @@
           <div class="option-title">
             <div class="option-name">Formule <span>« CLASSIQUE »</span><span class="retenue-badge">✓ Retenue</span><br><small style="color:#aaa;font-weight:400;">Groupe de 6 Danseurs</small></div>
           </div>
-          <div class="option-price">—</div>
         </div>
         <div class="duration-info" style="margin:0;">
           <svg class="icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
@@ -881,7 +850,6 @@
           <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Chorégraphies originales</span>
           <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Participation invités</span>
         </div>
-        <div class="tarif-line">Prestation <strong>420 €</strong> + Déplacement <strong>32 €</strong></div>
       </div>
 
     </div><!-- /formule-retenue-wrap -->
